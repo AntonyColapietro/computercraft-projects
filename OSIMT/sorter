@@ -33,7 +33,7 @@ details=invent.getTargetDetails(target)
    for k,v in pairs(invslots) do
     names[k]=v.Name
    end
-  
+  tra
   end
 
  function getOcc(invslots)
@@ -77,30 +77,12 @@ details=invent.getTargetDetails(target)
   initialize()
   end
  
-
- function transferToEmpty(index)  
-   turtle.select(index)
- if #empty>0 and occ[index]>0 then
-      if(index==11) then print("Seeds") end
-     turtle.transferTo(empty[1])
-    occ[index]=0
-    for k=2,15 do
-      if dup[k]==index
-       then
-        dup[k]=empty[1] 
-      end
-    end 
-     table.remove(empty,1)
-     orderInEmpty(index)
- end   
- return 
- end  
- 
- function printlist(array)
-    for i=1,#array do
-    print(array[i])
-    end
- end    
+--accessory function, mainly used for debugging/analysis
+-- function printlist(array)
+--    for i=1,#array do
+--    print(array[i])
+--    end
+-- end    
     
 
 function orderInEmpty(index)
@@ -120,29 +102,7 @@ function orderInEmpty(index)
  end
 end
 
-
-function sortAllByName()
- unames=unique(names)
- sortByName(unames)
-   
-end
-
-function sortByName(unames)
-k=1
-
-  while(k<=#unames) do 
-     for i=2,15 do 
-      if names[i]==unames[k] and not (unamespos[k]==i)then   
-         turtle.select(i)
-         turtle.transferTo(unamespos[k])
-          
-       end                 
-     end
- 
-  k=k+1
- end
-end         
-
+--simple function to identify unique names of items in the inventory
 function unique(array)
  for i=second,last do
    if(occ[i]>0 and dup[i]==0) then
@@ -152,14 +112,6 @@ function unique(array)
  end 
  
 end          
-
-function orderInv()
-   for index=2,#occ-1 do
-        if index > empty[1] and occ[index]>0 then
-          transferToEmpty(index)
-          end
-   end
-end
 
 
 function cleanscrap() --remove elements with name in the bad name list
