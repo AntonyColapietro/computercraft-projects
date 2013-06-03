@@ -1,7 +1,7 @@
 -- kateqwerty's turtle code. GPL'd
 -- digger v0.14
 
-dofile "diglib-sorter"
+dofile "diglibSorter"
 
 xc=70 --x of square to dig
 yc=70 --y of square to dig
