@@ -1,0 +1,17 @@
+path={}
+
+  function writeStep(direction)
+             table.insert(path,FIRST,direction)
+   end
+
+
+
+  function getStep(step)
+        return path[step]
+  end
+
+
+
+  function getPath()
+        return path
+   end
