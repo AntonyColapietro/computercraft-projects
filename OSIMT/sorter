@@ -73,9 +73,7 @@ details=invent.getTargetDetails(target)
    return dup
   end
   
- function turnOn()
-  initialize()
-  end
+
  
 --accessory function, mainly used for debugging/analysis
 -- function printlist(array)
