@@ -8,9 +8,9 @@ path={W}   --counting first step
 ypath={}
 xpathD={D,D}
 xpathA={A,A}
-zpathO={Q,Q,Q,R,R,W}  --path used for odd Z transitions or even Z transitions
-zpathE={Q,Q,R,R,W}
-zpathL={Q,R,R,W}  --corner case in odd Z transitions
+zpathO={Q,Q,Q,S,W}  --path used for odd Z transitions or even Z transitions
+zpathE={Q,Q,S,W}
+zpathL={Q,S,W}  --corner case in odd Z transitions
 FIRST=1
 
 
@@ -22,10 +22,6 @@ FIRST=1
 
 
  function writePlan(x,y,index)
-   for j=2,y do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
-    writeStep(ypath,W,FIRST)
-   end
-
    if index%2==1 then
      for i=1,x do
        updatePath(ypath)
@@ -54,6 +50,9 @@ end
    local x1=x-1        --local variables for transitions
    local y1=y-1
    local z1=z-1
+   for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
+    writeStep(ypath,W,FIRST)
+   end
    writeCube(x1,y1,z1)
 
   end
