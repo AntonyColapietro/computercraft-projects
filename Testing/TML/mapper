@@ -4,7 +4,7 @@ xpathD={D,D}
 xpathA={A,A}
 zpathO={Q,Q,Q,R,R,W}  --path used for odd Z transitions or even Z transitions
 zpathE={Q,Q,R,R,W}
-totalsteps= (x1) x (y1) x (z1) - FIRST  --FIRST step is already counted
+totalsteps=0
 W="forward"
 S="back"
 D="right"
@@ -15,6 +15,7 @@ FIRST=1
 
   function writePath(x,y,z)
    --initiliaze parts of the path
+   totalsteps= (x1) x (y1) x (z1) - FIRST  --FIRST step is already counted
    local x1=x-1        --local variables for transitions
    local y1=y-1
    local z1=z-1
