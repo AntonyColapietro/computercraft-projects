@@ -75,7 +75,7 @@ end
      tz=z/2
      for i=1,tz do
       writePlan(x,y,i)
-    	 if(i<tz) then
+    	 if(i<tz-1) then
      	  	updatePath(zpathO)
          else
                 updatePath(zpathE)
