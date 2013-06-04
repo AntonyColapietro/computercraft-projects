@@ -15,7 +15,7 @@ FIRST=1
 
   function updatePath(list)
    for i=1,#list do
-      writeStep(path,list[i],#path)
+      writeStep(path,list[i],#path+1)
     end
   end
 
