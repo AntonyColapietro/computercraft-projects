@@ -56,51 +56,16 @@ end
    --initiliaze parts of the path
    local x1=x-1        --local variables for transitions
    local y1=y-1
-   local z1=z-1
-   local z2=z+1     --count cube over the turtle at home position
+   local z1=z+1     --count cube over the turtle at home position
    for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
     writeStep(ypath,W,FIRST)
    end
---   writeCube(x1,y1,z1)
-   writeCube2(x1,y1,z2)
+
+   writeCube(x1,y1,z1)
 
   end
 
- function writeCube(x,y,z)
-  local tz=0 
-  if z%2 == 1 then 
-    for i=1,tz do
-      writePlan(x,y,i)    --even or odd i parameter will change output of writeplan
-     	if(i<tz) then
-      	  updatePath(zpathO)
-        else
-          if(z==3) then 
-           updatePath(zpathE) --particular corner case
-          else
-          updatePath(zpathL)
-          end
-          writePlan(x,y,i+1)
-        end 
-    end
-  else
-     tz=z/2
-     for i=1,tz do
-      writePlan(x,y,i)
-    	 if(i<tz-1) or z==4 then    --particular corner case
-     	  	updatePath(zpathO)
-         else
-                updatePath(zpathE)
-                writePlan(x,y,i+1)
-         end
-     end
-  end
-
- end   
-      
-
-
-   
-  function writeCube2(x,y,z)
+  function writeCube(x,y,z)
    local rest=z%3
    local div=math.floor(z/3)
    
