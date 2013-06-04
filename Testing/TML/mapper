@@ -1,3 +1,9 @@
+W="forward"
+S="back"
+D="right"
+A="left"
+E="up"
+Q="down"
 path={W}   --counting first step
 ypath={}
 xpathD={D,D}
@@ -5,13 +11,37 @@ xpathA={A,A}
 zpathO={Q,Q,Q,R,R,W}  --path used for odd Z transitions or even Z transitions
 zpathE={Q,Q,R,R,W}
 totalsteps=0
-W="forward"
-S="back"
-D="right"
-A="left"
-E="up"
-Q="down"
 FIRST=1
+
+
+  function updatePath(list)
+   for i=1,#list do
+      writeStep(path,list[i],#list)
+    end
+  end
+
+ function writePlan(x,y,index)
+   if index%2==1 then
+     for i=1,x do
+       updatePath(ypath)
+       corner(i)
+     end
+   
+   else
+      for i=1,x do
+        updatePath(ypath)
+        corner(i+1)
+      end
+     updatePath(ypath)
+   end
+end
+
+
+ function corner(index)
+    if index%2==1 then
+        updatePath(xpathD)
+    else
+        updatePath(xpathA)
 
   function writePath(x,y,z)
    --initiliaze parts of the path
@@ -32,19 +62,19 @@ FIRST=1
   if z%2 == 1 then 
      tz=(z-1)/2 
     for i=1,tz do
-      writeplan(x,y,i)    --even or odd i parameter will change output of writeplan
+      writePlan(x,y,i)    --even or odd i parameter will change output of writeplan
      	if(i<tz) then
-      	  addlevel(zpathO)
+      	  addLevel(zpathO)
         end 
     end
   else
      tz=z/2
      for i=1,tz do
-      writeplan(x,y,i)
+      writePlan(x,y,i)
     	 if(i<tz) then
-     	  	addlevel(zpathO)
+     	  	updatePath(zpathO)
          else
-                addlevel(zpathE)
+                updatePath(zpathE)
          end
      end
   end
