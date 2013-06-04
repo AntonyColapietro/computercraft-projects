@@ -61,8 +61,8 @@ end
    for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
     writeStep(ypath,W,FIRST)
    end
-   writeCube(x1,y1,z1)
-   writeCube2(x1,y1,z1)
+--   writeCube(x1,y1,z1)
+   writeCube2(x1,y1,z2)
 
   end
 
@@ -103,6 +103,7 @@ end
   function writeCube2(x,y,z)
    local rest=z%3
    local div=math.floor(z/3)
+   
    if rest==0 then
      for i=1,div do
        writePlan(x,y,i)
