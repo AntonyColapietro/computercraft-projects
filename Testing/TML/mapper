@@ -22,7 +22,13 @@ FIRST=1
 
 
  function writePlan(x,y,index)
-   if index%2==1 then
+ if x%2==0 then             --if x is even, then all the plans have the same path
+  for i=1,x do
+    updatePath(ypath)     
+    corner(i)
+  end
+else   
+   if index%2==1  then
      for i=1,x do
        updatePath(ypath)
        corner(i)
@@ -33,6 +39,7 @@ FIRST=1
         corner(i+1)
       end
    end
+end
   updatePath(ypath)
 end
 
@@ -60,18 +67,13 @@ end
  function writeCube(x,y,z)
   local tz=0 
   if z%2 == 1 then 
-     tz=(z-1)/2 
     for i=1,tz do
-      if(x%2==1) then
       writePlan(x,y,i)    --even or odd i parameter will change output of writeplan
-      else
-      writePlan(x,y,i+1)
-      end  
-      if(i<tz) then
-      updatePath(zpathO)
-      else
+     	if(i<tz) then
+      	  updatePath(zpathO)
+        else
           if(z==3) then 
-           updatePath(zpathE) --particular corner case 
+           updatePath(zpathE) --particular corner case
           else
           updatePath(zpathL)
           end
@@ -82,7 +84,7 @@ end
      tz=z/2
      for i=1,tz do
       writePlan(x,y,i)
-    	 if(i<tz-1) then
+    	 if(i<tz-1) or z==4 then    --particular corner case
      	  	updatePath(zpathO)
          else
                 updatePath(zpathE)
