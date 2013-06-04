@@ -1,7 +1,64 @@
-path={}
+path={W}   --counting first step
+ypath={}
+xpathD={D,D}
+xpathA={A,A}
+zpathO={Q,Q,Q,R,R,W}  --path used for odd Z transitions or even Z transitions
+zpathE={Q,Q,R,R,W}
+totalsteps= (x1) x (y1) x (z1) - FIRST  --FIRST step is already counted
+W="forward"
+S="back"
+D="right"
+A="left"
+E="up"
+Q="down"
+FIRST=1
 
-  function writeStep(direction)
-             table.insert(path,FIRST,direction)
+  function writePath(x,y,z)
+   --initiliaze parts of the path
+   local x1=x-1        --local variables for transitions
+   local y1=y-1
+   local z1=z-1
+   writecube(x1,y1,z1)
+   
+    for i=2,y-1 do     --ypath (excluded change of column right/left (x) or change of level (z))
+      writeStep(ypath,i,W)
+    end
+
+  end
+
+ function writecube(x,y,z)
+  local tz=0 
+  if z%2 == 1 then 
+     tz=(z-1)/2 
+    for i=1,tz do
+      writeplan(x,y,i)    --even or odd i parameter will change output of writeplan
+     	if(i<tz) then
+      	  addlevel(zpathO)
+        end 
+    end
+  else
+     tz=z/2
+     for i=1,tz do
+      writeplan(x,y,i)
+    	 if(i<tz) then
+     	  	addlevel(zpathO)
+         else
+                addlevel(zpathE)
+         end
+     end
+  end
+
+ end   
+      
+
+
+   
+  
+
+
+
+  function writeStep(whichpath,direction,position)
+             table.insert(whichpath,position,direction)
    end
 
 
