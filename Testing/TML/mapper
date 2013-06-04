@@ -57,10 +57,12 @@ end
    local x1=x-1        --local variables for transitions
    local y1=y-1
    local z1=z-1
+   local z2=z+1     --count cube over the turtle at home position
    for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
     writeStep(ypath,W,FIRST)
    end
    writeCube(x1,y1,z1)
+   writeCube2(x1,y1,z1)
 
   end
 
@@ -98,7 +100,41 @@ end
 
 
    
-  
+  function writeCube2(x,y,z)
+   local rest=z%3
+   local div=math.floor(z/3)
+   if rest==0 then
+     for i=1,div do
+       writePlan(x,y,i)
+       if(i<div) then
+       updatePath(zpathO)
+       end
+     end
+   end
+   if rest==1 then
+    for i=1,div do
+      writePlan(x,y,i)
+      if(i<div) then
+       updatePath(zpathO)
+      else
+       updatePath(zpathL)
+       writePlan(x,y,i+1)
+      end
+    end
+  end
+    if rest==2 then
+      for i=1,div do
+       writePlan(x,y,i)
+        if(i<div) then
+         updatePath(zpathO)
+        else
+         updatePath(zpathE)
+         writePlan(x,y,i+1)
+        end
+      end
+    end
+
+end
 
 
 
