@@ -60,9 +60,7 @@ end
    for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
     writeStep(ypath,W,FIRST)
    end
-
    writeCube(x1,y1,z1)
-
   end
 
   function writeCube(x,y,z)
