@@ -16,7 +16,7 @@ FIRST=1
 
   function updatePath(list)
    for i=1,#list do
-      writeStep(path,list[i],#list)
+      writeStep(path,list[i],#path)
     end
   end
 
@@ -42,6 +42,8 @@ end
         updatePath(xpathD)
     else
         updatePath(xpathA)
+   end
+end
 
   function writePath(x,y,z)
    --initiliaze parts of the path
@@ -51,7 +53,7 @@ end
    local z1=z-1
    writecube(x1,y1,z1)
    
-    for i=2,y-1 do     --ypath (excluded change of column right/left (x) or change of level (z))
+    for i=2,y1 do     --ypath (excluded change of column right/left (x) or change of level (z))
       writeStep(ypath,i,W)
     end
 
