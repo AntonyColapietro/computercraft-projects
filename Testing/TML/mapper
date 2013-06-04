@@ -10,6 +10,7 @@ xpathD={D,D}
 xpathA={A,A}
 zpathO={Q,Q,Q,R,R,W}  --path used for odd Z transitions or even Z transitions
 zpathE={Q,Q,R,R,W}
+zpathL={Q,R,R,W}  --corner case in odd Z transitions
 FIRST=1
 
 
@@ -53,18 +54,21 @@ end
    local x1=x-1        --local variables for transitions
    local y1=y-1
    local z1=z-1
-   writecube(x1,y1,z1)
+   writeCube(x1,y1,z1)
 
   end
 
- function writecube(x,y,z)
+ function writeCube(x,y,z)
   local tz=0 
   if z%2 == 1 then 
      tz=(z-1)/2 
     for i=1,tz do
       writePlan(x,y,i)    --even or odd i parameter will change output of writeplan
      	if(i<tz) then
-      	  addLevel(zpathO)
+      	  updatePath(zpathO)
+        else
+          updatePath(zpathL)
+          writePlan(x,y,i+1)
         end 
     end
   else
@@ -75,6 +79,7 @@ end
      	  	updatePath(zpathO)
          else
                 updatePath(zpathE)
+                writePlan(x,y,i+1)
          end
      end
   end
