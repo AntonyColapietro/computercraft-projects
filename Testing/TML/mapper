@@ -22,7 +22,7 @@ FIRST=1
 
  function writePlan(x,y,index)
    for j=2,y do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
-    writeStep(ypath,i,W)
+    writeStep(ypath,W,FIRST)
    end
 
    if index%2==1 then
@@ -35,8 +35,8 @@ FIRST=1
         updatePath(ypath)
         corner(i+1)
       end
-     updatePath(ypath)
    end
+  updatePath(ypath)
 end
 
 
