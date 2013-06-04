@@ -66,7 +66,11 @@ end
      	if(i<tz) then
       	  updatePath(zpathO)
         else
+          if(z==3) then 
+           updatePath(zpathE) --particular corner case 
+          else
           updatePath(zpathL)
+          end
           writePlan(x,y,i+1)
         end 
     end
