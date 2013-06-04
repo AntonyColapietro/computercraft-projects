@@ -19,13 +19,17 @@ FIRST=1
     end
   end
 
+
  function writePlan(x,y,index)
+   for j=2,y do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
+    writeStep(ypath,i,W)
+   end
+
    if index%2==1 then
      for i=1,x do
        updatePath(ypath)
        corner(i)
      end
-   
    else
       for i=1,x do
         updatePath(ypath)
@@ -50,10 +54,6 @@ end
    local y1=y-1
    local z1=z-1
    writecube(x1,y1,z1)
-   
-    for i=2,y1 do     --ypath (excluded change of column right/left (x) or change of level (z))
-      writeStep(ypath,i,W)
-    end
 
   end
 
