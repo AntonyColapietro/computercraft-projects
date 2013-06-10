@@ -33,8 +33,7 @@ details=invent.getTargetDetails(target)
    for k,v in pairs(invslots) do
     names[k]=v.Name
    end
-  tra
-  end
+ end
 
  function getOcc(invslots)
  
