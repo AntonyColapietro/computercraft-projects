@@ -40,7 +40,6 @@ details=invent.getTargetDetails(target)
   for k,v in pairs(invslots) do
    occ[k]=v.Size
   end
- 
  end
 
  function findEmpty(names)
