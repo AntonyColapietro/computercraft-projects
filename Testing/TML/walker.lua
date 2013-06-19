@@ -16,7 +16,7 @@ function isPassed(direction)
    if direction==W then
    return turtle.forward()
    end
-   if direction==S
+   if direction==S then
     turnAround()
     return turtle.forward()
    end
