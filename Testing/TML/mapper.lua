@@ -8,9 +8,9 @@ path={W}   --counting first step
 ypath={}
 xpathD={D,D}
 xpathA={A,A}
-zpathO={Q,Q,Q,S,W}  --path used for odd Z transitions or even Z transitions
-zpathE={Q,Q,S,W}
-zpathL={Q,S,W}  --corner case in odd Z transitions
+zpathO={Q,Q,Q,S}  --path used for odd Z transitions or even Z transitions
+zpathE={Q,Q,S}
+zpathL={Q,S}  --corner case in odd Z transitions
 FIRST=1
 
 
