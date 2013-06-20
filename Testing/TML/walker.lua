@@ -67,10 +67,12 @@ function move(direction)
             end
         end
        if not (passed) then
-          goHome()
-         print("Error:Obstacle found on the way")
+            print("Error:Obstacle found on the way")
+         -- goHome() TODO: implement this concept
+         -- maybe move(direction) can return a boolean to get success/error of the movement
+
         else
-       --  writeStep(direction)
+       -- need to think about this case
        end
 end                     
            
