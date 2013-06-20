@@ -64,7 +64,7 @@ end
   end
 
   function writeCube(x,y,z)
-   if z<=3 do
+   if z<3 do
     writePlan(x,y,FIRST)
     return
   end
