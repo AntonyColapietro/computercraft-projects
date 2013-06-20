@@ -12,8 +12,8 @@ first=1
 second=2  -- slot 1 is for the power source
 last=15   --slot 16 is for the sensor
 target="0,0,0"
-invent=sensor.wrap("right")
-details=invent.getTargetDetails(target)
+
+
 
   function initialize()
   invent=sensor.wrap("right")
@@ -23,7 +23,7 @@ details=invent.getTargetDetails(target)
   getOcc(slots)
   findEmpty(names)
   findDup(names)
- end
+  end
   
  function getSlots(tar)
   return tar.Slots  
@@ -201,12 +201,35 @@ dup={}
 occ={}
 slots={}
 unames={}
-
+details={}
+invent={}
 end
 
 function invSorter()
   initialize()
   cleanInv()
-  cleanVar()  
-  
+  cleanVar()    
+end
+
+function getEmptySlots()
+  initialize()
+  local emSlots=#empty
+  cleanVar()
+  return emSlots
+end
+
+--select the first occurrence of an item in the inventory
+function select(itemName)
+  initialize()
+  turtle.select(foInNames(itemName))
+  cleanVar()
+end
+
+--drop all items in inventory in the chest in front of the turtle
+function dropAll()
+  for i=second,last do
+    turtle.select(i)
+    turtle.drop()
+  end
+turtle.select(first)
 end
