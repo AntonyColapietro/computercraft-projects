@@ -64,6 +64,10 @@ end
   end
 
   function writeCube(x,y,z)
+   if z<=3 do
+    writePlan(x,y,FIRST)
+    return
+  end
    local rest=z%3
    local div=math.floor(z/3)
    
