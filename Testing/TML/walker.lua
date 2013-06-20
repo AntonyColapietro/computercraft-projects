@@ -70,7 +70,7 @@ function move(direction)
           goHome()
          print("Error:Obstacle found on the way")
         else
-         writeStep(direction)
+       --  writeStep(direction)
        end
 end                     
            
