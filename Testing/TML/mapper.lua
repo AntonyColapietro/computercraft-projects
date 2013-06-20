@@ -54,17 +54,17 @@ end
 
   function writePath(x,y,z)
    --initiliaze parts of the path
-   local x1=x-1        --local variables for transitions
+   local x1=x-1        --local variables for transitions (transitions between blocks, for x and y their number is equal to number of blocks -1)
    local y1=y-1
-   local z1=z+1     --count cube over the turtle at home position
-   for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (z))
+   local z1=z+2     --count level over the turtle at home position (if turtle start at height N, then it will stop at height N-z1, digging  N+1 levels of blocks) 
+   for j=2,y1 do     --ypath (excluded first step, change of column right/left (x) and change of level (S key count as a W fo walker.lua) (z))
     writeStep(ypath,W,FIRST)
    end
    writeCube(x1,y1,z1)
   end
 
   function writeCube(x,y,z)
-   if z<3 then
+   if z<3 then   --handle cases where it could be dig just 1 level or Z<0
     writePlan(x,y,FIRST)
     return
   end
