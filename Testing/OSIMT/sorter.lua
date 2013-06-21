@@ -215,6 +215,7 @@ function getEmptySlots()
   initialize()
   local emSlots=#empty
   cleanVar()
+  turtle.select(first)
   return emSlots
 end
 
