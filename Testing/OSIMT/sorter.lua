@@ -71,14 +71,16 @@ target="0,0,0"
    return dup
   end
   
- 
---accessory function, mainly used for debugging/analysis
--- function printlist(array)
---    for i=1,#array do
---    print(array[i])
---    end
--- end    
-    
+--[[
+accessory function, mainly used for debugging/analysis
+
+function printlist(array)
+    for i=1,#array do
+    print(array[i])
+    end
+ end    
+
+]]
 
 function orderInEmpty(index)
  for i=first,#empty-1 do
