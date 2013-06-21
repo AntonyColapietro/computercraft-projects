@@ -71,9 +71,6 @@ target="0,0,0"
    return dup
   end
   
- function turnOn()
-  initialize()
-  end
  
 --accessory function, mainly used for debugging/analysis
 -- function printlist(array)
