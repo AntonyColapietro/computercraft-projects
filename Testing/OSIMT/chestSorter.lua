@@ -10,11 +10,13 @@ first=1
 second=2  -- slot 1 is for the power source
 last=15   --slot 16 is for the sensor
 
+function sortAllItems()
 chest=peripheral.wrap("front")
 slots=chest.getAllStacks()
 getNames(slots)
+chest.condenseItems()
 cleanscrap()
-  
+end 
  
 
   function getNames(invslots)  
