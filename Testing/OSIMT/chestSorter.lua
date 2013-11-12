@@ -29,14 +29,15 @@ end
  
 
 function cleanscrap() --remove elements with name in the bad name list
-   local k
+  
+    for o=1,#names do
     for b=1,#badnames do
-          k=foInNames(badnames[b])
-                      while(k>0) do
-                          chest.destroyStack(k)
-                        
-                       end
-     end                 
+         if(badnames[b]==names[o]) then
+          chest.destroyStack(o)
+         end
+     end  
+     end
+
 end
 
 function foInNames(string) --give the first occurrence of an element given its name
