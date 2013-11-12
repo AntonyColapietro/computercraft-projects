@@ -19,7 +19,7 @@ cleanscrap()
 
   function getNames(invslots)  
    for k,v in pairs(invslots) do    
-        table.insert(names,b.name)
+        names[i]=v.name
    end
     
     end
