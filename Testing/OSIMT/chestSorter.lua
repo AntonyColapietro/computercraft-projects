@@ -1,11 +1,6 @@
-badnames={"Cobblestone", "Dirt", "Gravel","Flint"}
+badnames={"Cobblestone", "Dirt", "Gravel","Flint"} --filter list for undesired ores
 names={}
 slots={}
-occ={}
-empty={}
-dup={}
-unames={}
-unamespos={}
 first=1
 second=2  -- slot 1 is for the chest (chests) used for sorting...
 last=16 -- last slot of the turtle variable
