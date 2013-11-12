@@ -19,7 +19,8 @@ cleanscrap()
 end 
  
 
-  function getNames(invslots)  
+  function getNames(invslots) 
+  i=first 
    for k,v in pairs(invslots) do    
         names[i]=v.name
    end
