@@ -7,8 +7,8 @@ dup={}
 unames={}
 unamespos={}
 first=1
-second=2  -- slot 1 is for the power source
-last=15   --slot 16 is for the sensor
+second=2  -- slot 1 is for the chest (chests) used for sorting...
+last=16 -- last slot of the turtle variable
 
 function sortAllItems()
 chest=peripheral.wrap("front")
