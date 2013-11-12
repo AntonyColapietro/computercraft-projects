@@ -23,6 +23,7 @@ end
   i=first 
    for k,v in pairs(invslots) do    
         names[i]=v.name
+        i=i+1
    end
     
     end
