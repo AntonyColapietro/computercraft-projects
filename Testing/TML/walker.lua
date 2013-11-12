@@ -5,7 +5,7 @@ A="left"
 E="up"
 Q="down"
 FIRST=1
-dofile "mapper"
+dofile "mapper.lua"
 
 function turnAround() 
     turtle.turnRight()
