@@ -12,8 +12,8 @@ last=16 -- last slot of the turtle variable
 
 function sortAllItems()
 chest=peripheral.wrap("front")
-slots=chest.getAllStacks()
 chest.condenseItems()
+slots=chest.getAllStacks()
 getNames(slots)
 cleanscrap()
 end 
