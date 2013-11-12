@@ -42,54 +42,7 @@ function cleanscrap() --remove elements with name in the bad name list
 
 end
 
-function foInNames(string) --give the first occurrence of an element given its name
 
-     for i=1,#names do
-           if(string==names[i]) then
-                return i
-           end
-      end
- 
-return 0
-
-end
-
- 
-
-
-
-                         
-function cleanInv()
- cleanscrap()
- updateOcEmpty()
- smartMerge()
- updateOcEmpty()
- if(#empty>0) then
- smartOrder()
- end
- turtle.select(1)
-end
-
-function cleanVar()
-names={}
-empty={}
-dup={}
-occ={}
-slots={}
-unames={}
-details={}
-invent={}
-end
-
-
-
-
---select the first occurrence of an item in the inventory
-function select(itemName)
-  initialize()
-  turtle.select(foInNames(itemName))
-  cleanVar()
-end
 
 --drop all items in inventory in the chest in front of the turtle
 function dropAll()
