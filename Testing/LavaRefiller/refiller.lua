@@ -8,43 +8,13 @@ function refill()
   move(Q)
 	for mr=1,maxRepetitions do
 		for ml=1,maxLenght do
-      		if(turtle.place()) then
-         		turtle.refuel()        --first refill from in front of the turtle
-
-            	move(W)
-
-         		if(turtle.placeUp()) then  --refill from the layer above
-          		turtle.refuel()
-           		end
-         		if(turtle.placeDown()) then  --refill from the bottom layer
-         		turtle.refuel()
-          		end
-
-        		 turtle.turnRight()
-         		
-         		if(turtle.place()) then        --refill from the right side
-         		turtle.refuel()
-          		end
-
-         		turtle.turnLeft()
-        	    turtle.turnLeft()
-
-         		if(turtle.place()) then          --refill from the left side
-         		turtle.refuel()
-          		end
-
-          		turtle.turnRight()      --turn in the original orientation
-       		
-       	     else
-              move(W)
-
-           end
+      	lookForLavaOrGoOn()
        end
         if(mr<2) then
-         move(W)
+         lookForLavaOrGoOn()
          move(P)
-         move(W)
-         move(W)
+         lookForLavaOrGoOn()
+         lookForLavaOrGoOn()
          move(P)
          invert() 
         end
@@ -53,6 +23,8 @@ function refill()
   move(E)
 end
 
+
+
 function invert()
   if(P==D) then
      P=A
@@ -60,3 +32,41 @@ function invert()
     P=D
    end
 end
+
+
+function lookForLavaOrGoOn()
+    if(turtle.place()) then
+            turtle.refuel()        --first refill from in front of the turtle
+
+              move(W)
+
+            if(turtle.placeUp()) then  --refill from the layer above
+              turtle.refuel()
+              end
+            if(turtle.placeDown()) then  --refill from the bottom layer
+            turtle.refuel()
+              end
+
+             turtle.turnRight()
+            
+            if(turtle.place()) then        --refill from the right side
+            turtle.refuel()
+              end
+
+            turtle.turnLeft()
+              turtle.turnLeft()
+
+            if(turtle.place()) then          --refill from the left side
+            turtle.refuel()
+              end
+
+              turtle.turnRight()      --turn in the original orientation
+          
+             else
+              move(W)
+
+           end
+
+
+
+ end
