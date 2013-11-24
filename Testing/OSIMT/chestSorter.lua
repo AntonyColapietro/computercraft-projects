@@ -52,7 +52,10 @@ function chestSorting()
 turtle.select(first)
 turtle.turnLeft()
 turtle.turnLeft()
+if(not turtle.place()) then
+turtle.dig()
 turtle.place()
+end
 dropAll()
 sortAllItems()
 turtle.turnLeft()
