@@ -6,11 +6,11 @@ maxRepetitions=2
 function refill()
   move(Q)
   move(Q)
-	for mr=1,maxRepetitions do
-		for ml=1,maxLenght do
-      	lookForLavaOrGoOn()
+  for mr=1,maxRepetitions do
+    for ml=1,maxLenght do
+        lookForLavaOrGoOn()
        end
-        if(mr<2) then
+        if(mr<maxRepetitions) then
          lookForLavaOrGoOn()
          move(P)
          lookForLavaOrGoOn()
