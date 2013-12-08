@@ -1,11 +1,12 @@
 dofile "walker.lua"
 P=D
-maxLenght=16
-maxRepetitions=2
-
+maxLenght=7
+maxRepetitions=8
+maxGoDownNumber=1
 function refill()
+  for i=1,maxGoDownNumber do
   move(Q)
-  move(Q)
+  end
   for mr=1,maxRepetitions do
     for ml=1,maxLenght do
         lookForLavaOrGoOn()
@@ -19,8 +20,9 @@ function refill()
          invert() 
         end
    end
-  move(E)
-  move(E)
+   for i=1,maxGoDownNumber do
+     move(E)
+   end
 end
 
 
